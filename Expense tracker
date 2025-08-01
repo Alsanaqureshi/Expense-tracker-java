@@ -1,0 +1,65 @@
+package expensest;
+import java.util.Scanner;
+
+public class ExpenseTracker{
+	
+	
+	public static String CategorizeExpense( int amount  ) {
+	
+		
+		if(amount<500) {
+	return "Low Expenses";
+		}
+		else if(amount>=500 && amount<1999) {
+			return "Moderate Expenses";
+		}
+		else {
+	    return "High Expenses";
+		}
+	
+
+	}
+	public static void DisplayExpenseDetails(int amount, String description) {
+		System.out.println("Recorded expenses : ₹" +amount+ " "+ "on" +" " +  description );
+	}
+	
+
+public static void main(String[] args) {
+	Scanner scan= new Scanner (System.in);
+	
+	System.out.println("Enter the expenses amount:");
+	int amount= scan.nextInt();
+	scan.nextLine();
+	
+	System.out.println("Enter the description:");
+	String description= scan.nextLine();
+	while(true) {
+	
+	System.out.println(" \nExpense Tracker Menu:");
+	System.out.println("1. Categorize Expense");
+	System.out.println("2.View Expense");
+	System.out.println("3. Exit");
+	System.out.println("Enter your choice:");
+	int choice= scan.nextInt();
+	
+
+	
+	if(choice==1) {
+		String category= CategorizeExpense(amount);
+	System.out.println(description  + "falls under the category" +" " +  category);
+	}
+	else if( choice==2) {
+		DisplayExpenseDetails(amount, description);
+	}
+	else if(choice==3) {
+		System.out.println("Exiting expense tracker");
+		break;
+	}
+	else {
+		System.out.println("Invalid choice ! Please enter valid option");
+	
+	}
+	}
+
+}
+}
